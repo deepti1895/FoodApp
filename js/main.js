@@ -24,6 +24,7 @@ GroseryShoppingList.controller("loginController",function($scope,$location) {
 });
 GroseryShoppingList.controller("mainController",function($scope) {
 $scope.GroseryShoppingList = [{
+    id:1,
     name: 'Imperfecto',
   	address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
   	location: 'Connaught Place',
@@ -38,6 +39,7 @@ $scope.GroseryShoppingList = [{
   	image: 'image.jpg'
   },
   {
+      id:2,
     name: 'Open House Cafe',
     address: 'Phase 1, Om Vihar, Nawada, Delhi, 110059',
     location: 'Delhi',
@@ -53,6 +55,7 @@ $scope.GroseryShoppingList = [{
     image: 'image1.jpg'
   },
   {
+      id:3,
     name: 'Kingdom Of Momos',
     address: ' Khasra No - 147/1-2-3, Village Bamnoli, Sector - 28, Dwarka, Delhi, 110061',
     location: 'Dwarka',
@@ -68,6 +71,7 @@ $scope.GroseryShoppingList = [{
     image: 'image2.jpg'
   },
   {
+      id:5,
     name: 'Privee',
     address: '1A, Safdarjung Enclave, Block B 7, Arjun Nagar, Safdarjung Enclave, New Delhi, Delhi 110016',
     location: 'New Delhi',
@@ -83,6 +87,7 @@ $scope.GroseryShoppingList = [{
     image: 'image3.jpg'
   },
   {
+      id:6,
     name: 'The Hook',
     address: '1A, Safdarjung Enclave, Block B 7, Arjun Nagar, Safdarjung Enclave, New Delhi, Delhi 110016',
     location: 'New Delhi',
@@ -103,7 +108,8 @@ $scope.GroseryShoppingList = [{
 
 GroseryShoppingList.controller('GroseryController',function($scope,$routeParams,$http) {
 	$scope.GroseryId = $routeParams.id;
-	$scope.GroseryShoppingList = [{
+	var GroseryShoppingList1 = [{
+	    id:1,
 	    name: 'Imperfecto',
 	  	address: '38/39, Level 1, Block E , Inner Circle, Connaught Place',
 	  	location: 'Connaught Place',
@@ -118,6 +124,7 @@ GroseryShoppingList.controller('GroseryController',function($scope,$routeParams,
 	  	image: 'image.jpg'
 	  },
 	  {
+          id:2,
 	    name: 'Open House Cafe',
 	    address: 'Phase 1, Om Vihar, Nawada, Delhi, 110059',
 	    location: 'Delhi',
@@ -133,6 +140,7 @@ GroseryShoppingList.controller('GroseryController',function($scope,$routeParams,
 	    image: 'image1.jpg'
 	  },
 	  {
+          id:3,
 	    name: 'Kingdom Of Momos',
 	    address: ' Khasra No - 147/1-2-3, Village Bamnoli, Sector - 28, Dwarka, Delhi, 110061',
 	    location: 'Dwarka',
@@ -148,6 +156,7 @@ GroseryShoppingList.controller('GroseryController',function($scope,$routeParams,
 	    image: 'image2.jpg'
 	  },
 	  {
+          id:4,
 	    name: 'Privee',
 	    address: '1A, Safdarjung Enclave, Block B 7, Arjun Nagar, Safdarjung Enclave, New Delhi, Delhi 110016',
 	    location: 'New Delhi',
@@ -163,6 +172,7 @@ GroseryShoppingList.controller('GroseryController',function($scope,$routeParams,
 	    image: 'image3.jpg'
 	  },
 	  {
+          id:5,
 	    name: 'The Hook',
 	    address: '1A, Safdarjung Enclave, Block B 7, Arjun Nagar, Safdarjung Enclave, New Delhi, Delhi 110016',
 	    location: 'New Delhi',
@@ -180,10 +190,10 @@ GroseryShoppingList.controller('GroseryController',function($scope,$routeParams,
 
 	];
 	$scope.ingredients=[];
-	$scope.Grosery=GroseryShoppingList[$scope.GroseryId]
+	$scope.Grosery=GroseryShoppingList1[$routeParams.id - 1];
 	$scope.getIngredients = function(url) {
 		console.log(url);
-		var data = '{"inputs":[{"data":{"image":{"url":"' + url + '"}}}]}'
+		var data = '{"inputs":[{"data":{"image":{"url":"' + url + '"}}}]}';
 		$http({
 		'method': 'POST',
 		'url': 'https://api.clarifai.com/v2/models/bd367be194cf45149e75f01d59f77ba7/outputs',

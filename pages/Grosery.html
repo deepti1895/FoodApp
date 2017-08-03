@@ -1,15 +1,15 @@
-
-<div class="Grosery" ng-if="Grosery.name">
+<div class="Grosery" ng-controller="GroseryController">
+    <div class="Grosery" ng-if="Grosery.name">
     <div class="rest-wrapper">
         <div class="image">
-            <img src="{{Grosery.image}}" height="100" width="100">
+            <img ng-src="{{Grosery.image}}" height="100" width="100">
         </div>
         <div class="rest-info">
             <div class="rest-category">
                <small>{{Grosery.category}} </small>
             </div>
             <div class="rest-name">
-          <a ng-href="#!/Grosery/{{Grosery}.id}}"><strong>{{Grosery.name}}</strong></a>
+          <strong>{{Grosery.name}}</strong></a>
             </div>
             <div>
                <strong> {{Grosery.location}}</strong>
@@ -29,6 +29,10 @@
             <div>{{Grosery.cuisines}}</div>
             <div>{{Grosery.cost | number}}</div>
             <div>{{Grosery.hours}}</div>
+            <div class="bestDish" ng-if="Grosery.bestDish">
+                <span>{{Grosery.bestDish.name}} </span>
+                <div ng-click="getIngredients(Grosery.bestDish.image)" class="button">Get Ingredients</div>
+            
         </div>
     </div>
     <div class="rating">
@@ -41,4 +45,7 @@
     {{ingredient}}
     </li>
     </ol>
+</div>
+</div>
+
 </div>

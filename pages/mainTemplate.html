@@ -44,7 +44,7 @@
       </div>
       <div class="rest-info">
           <div class="rest-name">
-          <strong>{{Grosery.name}}</strong>
+              <a ng-href="#!/Grosery/{{Grosery.id}}"><strong>{{Grosery.name}}</strong>
           </div>
           <div class="rest-category">
              <small>{{Grosery.category}} </small>
@@ -68,9 +68,7 @@
           <div>{{Grosery.cuisines}}</div>
           <div>{{Grosery.cost | number}}</div>
           <div>{{Grosery.hours}}</div>
-          <div class="bestDish" ng-if="Grosery.bestDish">
-          <span>{{Grosery.bestDish.name}} </span>
-            <div ng-click="getIngredients(Grosery.bestDish.image)" class="button">Get Ingredients</div>
+
     </div>
 
       </div>
